@@ -1,9 +1,22 @@
-{% if user_list %}
-    <ul>
-    {% for user in user_list %}
-        <li>{{ user.peer_id }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No users are available.</p>
-{% endif %}
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://simplewebrtc.com/latest-v2.js"></script> 
+        <script src="{% static 'main_app/js/script.js' %}"></script>
+    </head>
+    <body>
+	{% if user_list %}
+	    <ul>
+	    {% for user in user_list %}
+	        <li>{{ user.peer_id }}</li>
+	    {% endfor %}
+	    </ul>
+	{% else %}
+	    <p>No users are available.</p>
+	{% endif %}
+        <video height="300" id="localVideo"></video>
+        <div id="remotesVideos"></div>
+    </body>
+</html>
